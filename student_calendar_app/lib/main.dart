@@ -4,22 +4,20 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:student_calendar_app/screens/schedule_page.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'services/reminder_service.dart';
+import 'firebase_options.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  // WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize Firebase
   // await Firebase.initializeApp(
-  //     // options: DefaultFirebaseOptions.currentPlatform,
-  //     );
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
 
-  // Initialize timezone data
-  tz.initializeTimeZones();
+  // tz.initializeTimeZones();
 
-  // Initialize notifications
   // final ReminderService reminderService = ReminderService();
   // await reminderService.setupNotifications();
 

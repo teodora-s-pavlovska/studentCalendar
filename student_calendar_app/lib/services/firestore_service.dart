@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:student_calendar_app/model/exam_event.dart';
+import '../model/exam_event.dart';
 
 class FirestoreService {
   final CollectionReference _eventsCollection =

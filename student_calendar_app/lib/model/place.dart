@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Place {
   final String name;
   final double latitude;
@@ -12,10 +14,7 @@ class Place {
   Map<String, dynamic> toMap() {
     return {
       'name': name,
-      'coordinates': {
-        'latitude': latitude,
-        'longitude': longitude,
-      },
+      'coordinates': GeoPoint(latitude, longitude),
     };
   }
 }
