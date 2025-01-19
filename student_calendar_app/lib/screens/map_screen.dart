@@ -1,37 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:student_calendar_app/model/place.dart';
 
-class MapScreen extends StatefulWidget {
-  const MapScreen({Key? key}) : super(key: key);
+class MapPage extends StatelessWidget {
+  final Place destination;
 
-  @override
-  State<MapScreen> createState() => _MapScreenState();
-}
-
-class _MapScreenState extends State<MapScreen> {
-  late GoogleMapController mapController;
-  final LatLng eventLocation = const LatLng(42.0, 21.0);
+  const MapPage({super.key, required this.destination});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Event Locations'),
-      ),
+      appBar: AppBar(title: Text(destination.name)),
       body: GoogleMap(
         initialCameraPosition: CameraPosition(
-          target: eventLocation,
-          zoom: 14.0,
+          target: LatLng(destination.latitude, destination.longitude),
+          zoom: 14,
         ),
         markers: {
           Marker(
-            markerId: const MarkerId('eventLocation'),
-            position: eventLocation,
-            infoWindow: const InfoWindow(title: 'Exam Location'),
-          ),
-        },
-        onMapCreated: (controller) {
-          mapController = controller;
+            markerId: const MarkerId('destination'),
+            position: LatLng(destination.latitude, destination.longitude),
+          )
         },
       ),
     );
